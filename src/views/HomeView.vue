@@ -1,9 +1,7 @@
-<script setup>
-  import SiteNavigation from '@/components/SiteNavigation.vue';
-</script>
-
 <template>
-  <main>
-    <SiteNavigationVue />
-  </main>
+  <HeroSection />
 </template>
+
+<script setup>
+  import HeroSection from '@/components/HeroSection.vue';
+</script>
