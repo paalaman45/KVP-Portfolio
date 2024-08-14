@@ -1,66 +1,142 @@
 <template>
-  <div class="bg-white">
-    <!--  -->
-    <SiteNavigation :mobileMenuOpen="mobileMenuOpen" />
-    <div class="relative isolate pt-14">
-      <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
-        <defs>
-          <pattern id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
-            <path d="M100 200V.5M.5 .5H200" fill="none" />
-          </pattern>
-        </defs>
-        <svg x="50%" y="-1" class="overflow-visible fill-gray-50">
-          <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0" />
-        </svg>
-        <rect width="100%" height="100%" stroke-width="0" fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
-      </svg>
-      <div class="mx-auto max-w-7xl px-6 py-24 sm:py-20 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-20">
-        <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-          <h1 class="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">A better way to ship your projects</h1>
-          <p class="mt-6 text-lg leading-8 text-gray-600">Esse id magna consectetur fugiat non dolor in ad laboris magna laborum ea consequat. Nisi irure aliquip nisi adipisicing veniam voluptate id. In veniam incididunt ex veniam adipisicing sit.</p>
-          <div class="mt-10 flex items-center gap-x-6">
-            <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
+  <div class="relative bg-gray-50">
+    <Popover class="relative bg-white shadow">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="flex items-center justify-between py-6 md:justify-start md:space-x-10">
+          <div class="flex justify-start lg:w-0 lg:flex-1">
+            <a href="#">
+              <span class="sr-only">Your Company</span>
+              <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            </a>
           </div>
-        </div>
-        <div class="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
-          <svg viewBox="0 0 366 729" role="img" class="mx-auto w-[22.875rem] max-w-full drop-shadow-xl">
-            <title>App screenshot</title>
-            <defs>
-              <clipPath id="2ade4387-9c63-4fc4-b754-10e687a0d332">
-                <rect width="316" height="684" rx="36" />
-              </clipPath>
-            </defs>
-            <path fill="#4B5563" d="M363.315 64.213C363.315 22.99 341.312 1 300.092 1H66.751C25.53 1 3.528 22.99 3.528 64.213v44.68l-.857.143A2 2 0 0 0 1 111.009v24.611a2 2 0 0 0 1.671 1.973l.95.158a2.26 2.26 0 0 1-.093.236v26.173c.212.1.398.296.541.643l-1.398.233A2 2 0 0 0 1 167.009v47.611a2 2 0 0 0 1.671 1.973l1.368.228c-.139.319-.314.533-.511.653v16.637c.221.104.414.313.56.689l-1.417.236A2 2 0 0 0 1 237.009v47.611a2 2 0 0 0 1.671 1.973l1.347.225c-.135.294-.302.493-.49.607v377.681c0 41.213 22 63.208 63.223 63.208h95.074c.947-.504 2.717-.843 4.745-.843l.141.001h.194l.086-.001 33.704.005c1.849.043 3.442.37 4.323.838h95.074c41.222 0 63.223-21.999 63.223-63.212v-394.63c-.259-.275-.48-.796-.63-1.47l-.011-.133 1.655-.276A2 2 0 0 0 366 266.62v-77.611a2 2 0 0 0-1.671-1.973l-1.712-.285c.148-.839.396-1.491.698-1.811V64.213Z" />
-            <path fill="#343E4E" d="M16 59c0-23.748 19.252-43 43-43h246c23.748 0 43 19.252 43 43v615c0 23.196-18.804 42-42 42H58c-23.196 0-42-18.804-42-42V59Z" />
-            <foreignObject width="316" height="684" transform="translate(24 24)" clip-path="url(#2ade4387-9c63-4fc4-b754-10e687a0d332)">
-              <img src="https://tailwindui.com/img/component-images/mobile-app-screenshot.png" alt="" />
-            </foreignObject>
-          </svg>
+          <div class="-my-2 -mr-2 md:hidden">
+            <PopoverButton class="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              <span class="absolute -inset-0.5" />
+              <span class="sr-only">Open menu</span>
+              <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+            </PopoverButton>
+          </div>
+          <PopoverGroup as="nav" class="hidden space-x-10 md:flex">
+            <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Pricing</a>
+            <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Docs</a>
+          </PopoverGroup>
+          
         </div>
       </div>
-    </div>
+
+      <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+        <PopoverPanel focus class="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden">
+          <div class="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div class="px-5 pb-6 pt-5">
+              <div class="flex items-center justify-between">
+                <div>
+                  <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+                </div>
+                <div class="-mr-2">
+                  <PopoverButton class="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span class="absolute -inset-0.5" />
+                    <span class="sr-only">Close menu</span>
+                    <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+                  </PopoverButton>
+                </div>
+              </div>
+              <div class="mt-6">
+                <nav class="grid gap-y-8">
+                  <a v-for="item in features" :key="item.name" :href="item.href" class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50">
+                    <component :is="item.icon" class="h-6 w-6 flex-shrink-0 text-indigo-600" aria-hidden="true" />
+                    <span class="ml-3 text-base font-medium text-gray-900">{{ item.name }}</span>
+                  </a>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </PopoverPanel>
+      </transition>
+    </Popover>
+
+    <main class="lg:relative">
+      <div class="mx-auto w-full max-w-7xl pb-20 pt-16 text-center lg:py-48 lg:text-left">
+        <div class="px-6 sm:px-8 lg:w-1/2 xl:pr-16">
+          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+            <span class="block xl:inline">Data to enrich your</span>
+            {{ ' ' }}
+            <span class="block text-indigo-600 xl:inline">online business</span>
+          </h1>
+          <p class="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+          <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
+            <div class="rounded-md shadow">
+              <a :href="btnViewProject[0].link" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:px-10 md:py-4 md:text-lg">{{ btnViewProject[0].name }}</a>
+            </div>
+            <div class="mt-3 rounded-md shadow sm:ml-3 sm:mt-0">
+              <a :href="btnResume[0].link" class="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-indigo-600 hover:bg-gray-50 md:px-10 md:py-4 md:text-lg">{{ btnResume[0].name }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative h-64 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
+        <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80" alt="" />
+      </div>
+    </main>
   </div>
 </template>
 
 <script setup>
-  import { ref } from 'vue'
-  import { Dialog, DialogPanel } from '@headlessui/vue'
-  import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-  import { ChevronRightIcon } from '@heroicons/vue/20/solid'
+  import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue'
+  import {
+    ArrowPathIcon,
+    Bars3Icon,
+    BookmarkSquareIcon,
+    CalendarIcon,
+    ChartBarIcon,
+    CursorArrowRaysIcon,
+    LifebuoyIcon,
+    PhoneIcon,
+    PlayIcon,
+    ShieldCheckIcon,
+    Squares2X2Icon,
+    XMarkIcon,
+  } from '@heroicons/vue/24/outline'
+  import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 
-  import SiteNavigation from './SiteNavigation.vue'
-
-  const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
+  const features = [
+    {
+      name: 'Analytics',
+      href: '#',
+      description: 'Get a better understanding of where your traffic is coming from.',
+      icon: ChartBarIcon,
+    },
+    {
+      name: 'Engagement',
+      href: '#',
+      description: 'Speak directly to your customers in a more meaningful way.',
+      icon: CursorArrowRaysIcon,
+    },
+    { name: 'Security', href: '#', description: "Your customers' data will be safe and secure.", icon: ShieldCheckIcon },
+    {
+      name: 'Integrations',
+      href: '#',
+      description: "Connect with third-party tools that you're already using.",
+      icon: Squares2X2Icon,
+    },
+    {
+      name: 'Automations',
+      href: '#',
+      description: 'Build strategic funnels that will drive your customers to convert',
+      icon: ArrowPathIcon,
+    },
   ]
 
-  const mobileMenuOpen = ref(false)
+  const btnViewProject = [
+    {
+      name: "View Project",
+      link: "#"
+    }
+  ]
+
+  const btnResume = [
+    {
+      name: "View Resume",
+      link: "#"
+    }
+  ]
 </script>
-
-<style lang="scss" scoped>
-
-</style>
